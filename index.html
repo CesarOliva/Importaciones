@@ -1,705 +1,157 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
+    <!--Metaetiquetas-->
     <meta charset="UTF-8">
+    <meta name="author" content="César Oliva">
+    <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ImportaFácil - Tu puente de compras desde EE.UU.</title>
-    <style>
-        :root {
-            --primary: #0057b8;
-            --secondary: #ffc107;
-            --accent: #dc3545;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 50px;
-        }
-        
-        .logo h1 {
-            font-size: 24px;
-            margin-left: 10px;
-            color: var(--primary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 20px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #004396;
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: var(--dark);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #e0a800;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 87, 184, 0.8), rgba(0, 87, 184, 0.9)), url('https://images.unsplash.com/photo-1519098901903-b155a0ebef01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        /* How it works */
-        .how-it-works {
-            padding: 80px 0;
-            background-color: var(--light);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--primary);
-        }
-        
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        
-        .step {
-            flex: 0 0 30%;
-            text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .step-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            line-height: 50px;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        
-        .step h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        /* Services */
-        .services {
-            padding: 80px 0;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .service-content {
-            padding: 20px;
-        }
-        
-        .service-content h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        /* Pricing */
-        .pricing {
-            padding: 80px 0;
-            background-color: var(--light);
-        }
-        
-        .pricing-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-        
-        .pricing-card {
-            flex: 0 0 300px;
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin: 20px 0;
-        }
-        
-        .price-features {
-            list-style: none;
-            margin: 20px 0;
-        }
-        
-        .price-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        /* FAQ */
-        .faq {
-            padding: 80px 0;
-            background-color: var(--light);
-        }
-        
-        .accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .accordion-item {
-            margin-bottom: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .accordion-header {
-            background: white;
-            padding: 15px 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-        }
-        
-        .accordion-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s, padding 0.3s;
-            background: white;
-        }
-        
-        .accordion-content.active {
-            padding: 20px;
-            max-height: 500px;
-        }
-        
-        /* CTA */
-        .cta {
-            padding: 80px 0;
-            background: linear-gradient(to right, var(--primary), #0075e3);
-            color: white;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h3 {
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: white;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            color: white;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 10px 10px;
-            }
-            
-            .step {
-                flex: 0 0 100%;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <meta property="og:title" content="MOV-e BUY & BOX">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mov-e.com.mx/">
+    <meta property="og:image" content="https://www.mov-e/Imagenes/Logo.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <title>MOV-e BUY & BOX</title>
+    <!--Scripts y links-->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/17383348a8.js" crossorigin="anonymous"></script>    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Imagenes/Logo.jpg" type="image/png" />
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDU3YjgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNCAxOWEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJ4LTExYTEwIDEwIDAgMCAwLTE2IDB2MTF6Ij48L3BhdGg+PGNpcmNsZSBjeD0iMTIiIGN5PSI4IiByPSI0Ij48L2NpcmNsZT48L3N2Zz4=" alt="ImportaFácil Logo">
-                <h1>ImportaFácil</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#how-it-works">Cómo Funciona</a></li>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#pricing">Precios</a></li>
-                    <li><a href="#testimonials">Testimonios</a></li>
-                    <li><a href="#faq">Preguntas Frecuentes</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                </ul>
-            </nav>
-            <a href="#register" class="btn">Registrarse</a>
-        </div>
-    </header>
+<body class="bg-[#413c35]">
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Compra en cualquier tienda de EE.UU. y te lo llevamos hasta tu puerta</h2>
-            <p>Tu dirección en Estados Unidos para recibir tus compras online. Importamos cualquier producto que desees de las mejores tiendas americanas.</p>
-            <a href="#how-it-works" class="btn btn-secondary">Cómo funciona</a>
+    <section class="main items-center sm:items-start flex flex-col justify-center px-2 md:px-0 sm:pl-12 md:pl-36 md:pr-0 gap-y-3 text-white">
+        <h1 class="text-6xl text-center md:text-start font-semibold text-white">MOV-e BUY & BOX</h1>
+        <h3 class="text-center leading-tight sm:text-start text-xl md:text-3xl max-w-128 leading-relaxed text-[#e9a05b]">DA ALAS A TUS COMPRAS</h3>
+        <button class="bg-[#413c35] hover:bg-[#e9a05b] w-32 py-1 rounded-lg text-white text-xl"><a href="https://wa.me/+52" target="_blank">Contacto</a></button>
+    </section>
+
+    <section class="hero bg-white text-black w-full flex justify-center md:py-20 py-12">
+        <div class="w-[80%] md:w-[70%] flex items-center justify-center flex-col md:flex-row">
+            <div class=" right w-full md:w-[50%] md:pr-8 flex md:justify-start justify-center">
+                <img src="Imagenes/Logo.jpg" alt="MOV-e BUY & BOX" class="mb-8 md:mb-0">
+            </div>
+            <div class="left w-full md:w-[50%] gap-y-4">
+                <h2 class="font-semibold text-5xl mb-1 text-center md:text-left text-[#413c35]">MOV-e BUY & BOX</h2>
+                <p class="text-xl leading-relaxed text-center md:text-left"> 
+                    <p class="text-xl leading-relaxed text-center md:text-left">Somos una empresa dedicada a la logística y envío de mercancía. Con más de 10 años de experiencia en el sector, 
+                    hemos perfeccionado nuestros procesos para que la importación de mercancía sea simple, rápida y segura. <br>Nuestro equipo de expertos te acompaña en cada paso hasta que recibas tu mercancía a tu hogar o negocio.</p>
+            </div>
         </div>
     </section>
 
-    <!-- How it works -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">Cómo Funciona Nuestro Servicio</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Regístrate Gratis</h3>
-                    <p>Crea tu cuenta y recibe tu dirección exclusiva en Estados Unidos</p>
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-shopping-cart text-6xl text-[#e9a05b] mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Compras en USA</h3>
+                    <p class="text-[18px]">Compra tus productos en cualquiera de las tiendas de Estados Unidos y lo enviamos a tu domicilio.</p>                    
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Compra Online</h3>
-                    <p>Realiza tus compras en cualquier tienda online de EE.UU. usando tu dirección asignada</p>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-box text-6xl text-[#e9a05b] mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Envíos Seguros</h3>
+                    <p class="text-[18px]">Ofrecemos servicios de envío confiables y rápidos para que tus compras lleguen a tiempo.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Nosotros lo Importamos</h3>
-                    <p>Recibimos tu paquete, lo procesamos y lo enviamos directamente a tu domicilio</p>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-headset text-6xl text-[#e9a05b] mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Atención al Cliente</h3>
+                    <p class="text-[18px]">Nuestro equipo está disponible para ayudarte en cada paso del proceso de compra y envío.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1563014959-7aaa83350992?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Dirección en EE.UU.</h3>
-                        <p>Dirección física exclusiva en Miami para recibir todos tus paquetes de compras online.</p>
+    <section class="contacto w-full flex justify-center my-12 md:my-16">
+        <div class="formulario bg-white w-[90%] md:w-[70%] lg:w-[50%] rounded-3xl">
+            <form action="" method="post" class="flex flex-col p-12 md:p-16">
+                <h2 class="text-center text-3xl mb-8">Contacto</h2>
+
+                <label for="name">Nombre:</label>
+                <input required class="bg-[#EBEBEB] p-2 my-2 rounded-lg" type="text" name="Nombre" id="name" placeholder="Nombre">
+                
+                <label for="mail">Correo:</label>
+                <input required class="bg-[#EBEBEB] p-2 my-2 rounded-lg" type="email" name="Correo" id="email" placeholder="Correo">
+                
+                <label for="Telefono">Teléfono:</label>
+                <input required class="bg-[#EBEBEB] p-2 my-2 rounded-lg" type="tel" name="Telefono" id="phone" placeholder="Teléfono">
+                
+                <label class="mb-1">Método de Contacto:</label>
+                <div class="radios mb-2" id="radios">
+                    <div class="radio-form mb-1">
+                        <input type="radio" name="Contacto" id="telefono" value="Télefono">
+                        <label class="ml-1" for="telefono">Télefono</label>
+                    </div>
+
+                    <div class="radio-form">
+                        <input type="radio" name="Contacto" id="correo" value="Correo">
+                        <label class="ml-1" for="correo">Correo</label>
                     </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Consolidación de Paquetes</h3>
-                        <p>Agrupamos múltiples compras en un solo envío para ahorrar costos de envío.</p>
-                    </div>
+
+                <label for="message" class="mensaje">Mensaje:</label>
+                <textarea class="min-h-[50px] max-h-[150px] bg-[#EBEBEB] p-2 my-2 rounded-lg" name="Mensaje" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
+                <div class="enviar w-full flex justify-center mt-4">
+                    <input class="bg-[#e9a05b] hover:bg-[#413c35]  w-32 py-1 rounded-lg text-white text-xl" type="submit" value="Enviar">
                 </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Gestión de Devoluciones</h3>
-                        <p>Te ayudamos con el proceso de devoluciones si algún producto no cumple tus expectativas.</p>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2 class="section-title">Nuestros Precios</h2>
-            <div class="pricing-options">
-                <div class="pricing-card">
-                    <h3>Plan Básico</h3>
-                    <div class="price">$5/libra</div>
-                    <ul class="price-features">
-                        <li>Almacenamiento gratuito por 30 días</li>
-                        <li>Consolidación de paquetes</li>
-                        <li>Fotos de inspección básica</li>
-                        <li>Soporte por email</li>
-                    </ul>
-                    <a href="#register" class="btn">Elegir Plan</a>
+    <footer class="w-full bg-[#191919] py-8 md:py-12 text-white flex justify-center">
+        <div class="w-[100%] md:w-[90%] lg:w-[80%] flex flex-wrap md:flex-nowrap">
+            <div class="order-1 md:order-0 w-full lg:w-[33%] flex justify-center text-center mb-8 md:justify-start md:text-left md:mb-0">
+                <p class="text-[16px] md:text-[18px]">
+                    José Musa De León #1620 Local #5<br>
+                    Colonia Los Pinos<br>
+                    C.P 25198<br>
+                    <br>
+                    Saltillo<br>
+                    Coahuila, México
+                </p>
+            </div>
+
+            <div class="order-0 md:order-1 w-full lg:w-[33%] text-center text-[16px] md:text-[18px] mb-8 md:mb-0">
+                <p>©2025 MOV-e BUY & BOX</p>
+
+                <div class="text-[35px] my-4 flex justify-center">
+                    <div class="w-14 h-14 mx-2 flex justify-center items-center rounded-[50%] bg-[#25D366]">
+                        <a href="https://wa.me/+52" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <div class="w-14 h-14 mx-2 flex justify-center items-center rounded-[50%] bg-[#ef5451]">
+                        <a href="mailto:" target="_blank">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="pricing-card">
-                    <h3>Plan Premium</h3>
-                    <div class="price">$7/libra</div>
-                    <ul class="price-features">
-                        <li>Almacenamiento gratuito por 45 días</li>
-                        <li>Consolidación inteligente</li>
-                        <li>Fotos de inspección detallada</li>
-                        <li>Soporte prioritario 24/7</li>
-                        <li>Seguro básico incluido</li>
-                    </ul>
-                    <a href="#register" class="btn">Elegir Plan</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Plan Empresarial</h3>
-                    <div class="price">Personalizado</div>
-                    <ul class="price-features">
-                        <li>Soluciones personalizadas</li>
-                        <li>Tarifas por volumen</li>
-                        <li>Gestión de inventario</li>
-                        <li>Reportes detallados</li>
-                        <li>Cuenta ejecutiva dedicada</li>
-                    </ul>
-                    <a href="#contact" class="btn">Contactar Ventas</a>
+
+                <div class="enlaces flex flex-col gap-y-2">
+                    <a class="hover:text-[#3b5998]" href="mailto:">mail@gmail.com</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Lo que Dicen Nuestros Clientes</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text">"He utilizado ImportaFácil para traer componentes electrónicos que no se consiguen en mi país. El servicio es rápido y confiable."</p>
-                    <p class="testimonial-author">- Carlos M., Ingeniero</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"Como pequeña empresaria, importar insumos desde EE.UU. se ha vuelto mucho más sencillo y económico con su servicio de consolidación."</p>
-                    <p class="testimonial-author">- Laura V., Emprendedora</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"Compro regularmente ropa de marca en tiendas americanas y ImportaFácil siempre me ofrece el mejor precio de envío con entrega puntual."</p>
-                    <p class="testimonial-author">- Andrea R., Estilista</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        ¿Qué tiendas puedo usar? <span>+</span>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Puedes comprar en cualquier tienda online de Estados Unidos que realice envíos nacionales. Amazon, eBay, Best Buy, Walmart, Target, Apple, y muchas más.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        ¿Cómo se calcula el costo de envío? <span>+</span>
-                    </div>
-                    <div class="accordion-content">
-                        <p>El costo se calcula por peso volumétrico (libras). Te proporcionamos una calculadora en tu panel de cliente para estimar costos antes de enviar.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        ¿Cuánto tarda en llegar mi pedido? <span>+</span>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Una vez que recibimos tu paquete en nuestras instalaciones, el proceso típico de importación tarda entre 3-7 días hábiles dependiendo de tu ubicación.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        ¿Hay productos restringidos? <span>+</span>
-                    </div>
-                    <div class="accordion-content">
-                        <p>No manejamos productos peligrosos, armas, alcohol, tabaco, productos perecederos ni medicamentos controlados. Consulta nuestra lista completa de restricciones.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="register" class="cta">
-        <div class="container">
-            <h2>¿Listo para comenzar a comprar?</h2>
-            <p>Regístrate hoy mismo y obtén tu dirección exclusiva en Estados Unidos. Sin costos iniciales ni cuotas mensuales.</p>
-            <a href="#" class="btn btn-secondary">Crear Cuenta Gratis</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>ImportaFácil</h3>
-                    <p>Tu puente de compras entre Estados Unidos y tu país.</p>
-                    <div class="social-links">
-                        <a href="#"><span>FB</span></a>
-                        <a href="#"><span>IG</span></a>
-                        <a href="#"><span>TW</span></a>
-                        <a href="#"><span>LI</span></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#how-it-works">Cómo Funciona</a></li>
-                        <li><a href="#services">Servicios</a></li>
-                        <li><a href="#pricing">Precios</a></li>
-                        <li><a href="#testimonials">Testimonios</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Términos y Condiciones</a></li>
-                        <li><a href="#">Política de Privacidad</a></li>
-                        <li><a href="#">Política de Envíos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li>Dirección en EE.UU.: 1234 NW 82nd Ave, Miami, FL 33126</li>
-                        <li>Email: info@importafacil.com</li>
-                        <li>Teléfono: +1 (305) 123-4567</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 ImportaFácil. Todos los derechos reservados.</p>
+            <div class="order-2 w-full lg:w-[33%]">
+                <p class="text-[16px] md:text-[18px] text-center md:text-right">
+                    HORARIO<br>
+                    Lunes a Viernes de 9:00am - 6:30pm <br>
+                    Sábado Y Domingo Cerrado 
+                </p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Funcionalidad del acordeón de FAQ
-        function toggleAccordion(element) {
-            const content = element.nextElementSibling;
-            const isActive = content.classList.contains('active');
-            
-            // Cerrar todos los acordeones
-            document.querySelectorAll('.accordion-content').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.accordion-header span').forEach(item => {
-                item.textContent = '+';
-            });
-            
-            // Abrir el acordeón clickeado si no estaba activo
-            if (!isActive) {
-                content.classList.add('active');
-                element.querySelector('span').textContent = '-';
-            }
-        }
-    </script>
+    <div class="wpp">
+        <a href="https://wa.me/+528112113212" target="_blank">
+            <img src="Imagenes/WhatsApp.png" alt="Contactanos" class="w-16 md:w-18">
+        </a>
+    </div>
 </body>
 </html>

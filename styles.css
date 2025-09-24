@@ -1,0 +1,41 @@
+* {
+  font-family: "Poppins";
+}
+
+@font-face {
+    font-family: 'Avory';
+    src: url('AVORY.otf');
+}
+
+section.main {
+  background-image: url("Imagenes/Background.wep");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+section.main h1{
+  font-family: 'Aldrich', sans-serif;
+  font-weight: 400;
+}
+
+section.main h3{
+  font-family: 'Avory', sans-serif;
+  font-weight: 800;
+}
+
+section.hero {
+  background: url('Imagenes/background.png');
+  background-color: white;
+}
+
+section.hero h2{
+  font-family: 'Aldrich', sans-serif;;
+}
+
+.wpp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
