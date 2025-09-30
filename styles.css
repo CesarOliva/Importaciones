@@ -39,3 +39,11 @@ section.hero h2{
   bottom: 20px;
   right: 20px;
 }
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 18px !important;
+}
+
+.swiper-slide{
+  height: auto !important;
+}
